@@ -1,17 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Button } from "@mui/material";
+import { useCitiesData } from "hooks";
 import { ICity } from "interfaces";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useAppSelector } from "store/hooks";
 
-interface ICardCity extends ICity {
-    addFavourite: () => void;
-    removeFavourite: () => void;
-}
-
-const CardCity = ({id, name, country, region, addFavourite, removeFavourite}: ICardCity) => {
+const CardCity = memo(({id, name, country, region}: ICity) => {
 
     const { favourites } = useAppSelector(state => state.cities);
+
+    const { addFavourite, removeFavourite } = useCitiesData();
     
     const [isFavourite, setIsFavourite] = useState(false);
 
@@ -20,8 +18,14 @@ const CardCity = ({id, name, country, region, addFavourite, removeFavourite}: IC
     }, [])
 
     const toggleFavourite = () => {
-        if (!isFavourite) addFavourite();
-        else removeFavourite();
+        let city: ICity = {
+            id,
+            name,
+            country,
+            region
+        }
+        if (!isFavourite) addFavourite(city);
+        else removeFavourite(city);
 
         setIsFavourite(!isFavourite);
     };
@@ -45,6 +49,6 @@ const CardCity = ({id, name, country, region, addFavourite, removeFavourite}: IC
             </div>
         </div>
     );
-}
+});
 
 export { CardCity }

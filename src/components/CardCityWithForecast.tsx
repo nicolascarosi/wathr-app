@@ -1,12 +1,13 @@
 import { IconButton } from "@mui/material";
 import { ICity, ICityWithForecast } from "interfaces";
 import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
+import { memo } from "react";
 
 interface ICardCityWithForecast extends ICityWithForecast {
     handleOpenCheckers: (param: ICity) => void;
 }
 
-const CardCityWithForecast = ({location, current, handleOpenCheckers}: ICardCityWithForecast) => {
+const CardCityWithForecast = memo(({location, current, handleOpenCheckers}: ICardCityWithForecast) => {
     return (
         <div className="card-city --with-forecast">
             <div className="card-city__info">
@@ -35,6 +36,6 @@ const CardCityWithForecast = ({location, current, handleOpenCheckers}: ICardCity
             </IconButton >
         </div>
     );
-}
+});
 
 export { CardCityWithForecast }

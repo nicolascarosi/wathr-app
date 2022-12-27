@@ -14,7 +14,9 @@ const useCitiesData = () => {
     const { favourites } = useAppSelector(state => state.cities);
 
     const getFavourites = () => favourites;
-    const setFavourites = (newFavourites: ICityWithForecast[]) => dispatch(citiesActions.setFavourites(newFavourites));
+    const setFavourites = (newFavourites: ICityWithForecast[]): void => {
+        dispatch(citiesActions.setFavourites(newFavourites))
+    };
 
     const addFavourite = async (city: ICity) => {
         const newFavourites: ICityWithForecast[] = [...favourites];

@@ -14,7 +14,7 @@ const Home = () => {
 
     const { full_name } = useAppSelector(state => state.user);
 
-    const { getFavourites, addFavourite, removeFavourite, refreshForecast, loading } = useCitiesData();
+    const { getFavourites, refreshForecast, loading } = useCitiesData();
 
     const favourites = getFavourites();
 
@@ -55,7 +55,7 @@ const Home = () => {
                                     {cities.length > 0 ?
                                         <>
                                             {cities.map((city: ICity) => (
-                                                <CardCity key={`city-${city.id}`} {...city} addFavourite={() => addFavourite(city)} removeFavourite={() => removeFavourite(city)}/>
+                                                <CardCity key={`city-${city.id}`} {...city}/>
                                             ))}
                                         </>
                                     : 
