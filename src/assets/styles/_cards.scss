@@ -1,0 +1,59 @@
+.card {
+    &__title {
+        @include font-size(18, 18, 600);
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.card-city {
+    padding: 10px 0;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    row-gap: 10px;
+    position: relative;
+    &:not(:last-child) {
+        border-bottom: 1px solid $light-gray;
+    }
+    &__name {
+        @include font-size(14, 14, 600);
+        margin-bottom: 5px;
+    }
+    &__country {
+        @include font-size(14);
+        color: $gray;
+    }
+    &__info {
+        img {
+            max-width: 64px;
+        }
+    }
+    &__forecast {
+        display: flex;
+        column-gap: 20px;
+        small {
+            display: block;
+            color: $gray;
+            @include font-size(12);
+            margin-top: 2px;
+        }
+        &__temperature, &__humidity, &__real-feel {
+            @include font-size(18, 18, 600);
+        }
+    }
+    &.--with-forecast {
+        grid-template-columns: 1fr;
+        .card-city__info {
+            display: flex;
+            align-items: center;
+            column-gap: 20px;
+        }
+        .MuiButtonBase-root {
+            position: absolute;
+            right: 0;
+            top: 12px;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+///////////////////////
+// Breakpoints
+$screen-sm-min: 576; // Small tablets and large smartphones (landscape view)
+$screen-md-min: 720; // Small tablets (portrait view)
+$screen-lg-min: 1024; // Tablets and small desktops
+$screen-xl-min: 1440; // Large tablets and desktops
+
+$white: #FFFFFF;
+$light-gray: #E8E8E8;
+$gray: #454545;
+$dark-gray: #191919;
+$black: #000000;
+
+$primary-color: #3A00D5;
+$primary-color-dark: #1A0060;
+$primary-color-light: #D2C7EF;
+$secondary-color: #FFFE5B;
+
+$error-color: #F04438;
+$warning-color: #FEC84B;
+$success-color: #027A48;
+
+$bg-color: rgb(49, 104, 150);
+
+$primary-font: 'Helvetica', sans-serif;

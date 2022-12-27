@@ -1,0 +1,29 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-color: $bg-color;
+    min-height: 100%;
+    font-family: $primary-font;
+}
+
+.container {
+    width: min(100% - 15px, 1440px);
+    margin-inline: auto;
+}
+
+.page-home {
+    padding: 100px 0;
+}
+
+// Titles
+.main-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h1 {
+        color: $white;
+        @include font-size(30, 30, 600);
+    }
+}
